@@ -4,7 +4,11 @@ import { Component } from '@angular/core';
   selector: 'app-root',
   template: `
     <h1 [style.color]="nameColor" [class.isActive]="isActive">{{ name.toUpperCase() }}</h1>
-    <img [src]="photoUrl"/>
+    <img [src]="photoUrl" height="200" width="200"/>
+    <br/>
+    <button (click)="changeIsActive()" type="button">Przełącz podkreślenie</button>
+    <br/>
+    <button (click)="changeColor()" type="button">Przełącz kolor</button>
     `,
   styles: [
       '.isActive { text-decoration: underline; }'
@@ -18,6 +22,14 @@ export class AppComponent {
 
 
   constructor() {
+  }
+
+  changeIsActive() {
+    this.isActive = !this.isActive;
+  }
+
+  changeColor() {
+    this.nameColor = this.nameColor === "blue" ? "red" : "blue";
   }
 
 }
