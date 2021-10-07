@@ -1,7 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {Customer, CustomerType} from "../model";
+import {Customer} from "../model";
 import {CustomerDetailsComponent} from "../customer-details/customer-details.component";
-import { CustomerService } from '../customer.service';
+import {CustomerService} from '../customer.service';
 
 @Component({
   selector: 'app-customer-browser',
@@ -19,8 +19,10 @@ export class CustomerBrowserComponent implements OnInit {
   constructor(private customerService: CustomerService) { }
 
   ngOnInit(): void {
-    this.customers = this.customerService.getCustomers()
-    this.customer = this.customers[0];
+    this.customerService.getCustomers().subscribe(response => {
+      this.customers = response;
+      this.customer = this.customers[0];
+    });
   }
 
   changeColor() {

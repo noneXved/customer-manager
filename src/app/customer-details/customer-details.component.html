@@ -22,7 +22,7 @@
                 </p>
 
                 <ul>
-                    <li *ngFor="let category of customer.categories; let oddCategory = odd" [class.oddCategory]="oddCategory"> {{ category }} {{ oddCategory }}</li>
+                    <li *ngFor="let category of customer.categories; let oddCategory = odd" [class.oddCategory]="oddCategory"> {{ category }} </li>
                 </ul>
                 <button class="btn btn-primary" (click)="changeIsActive()" type="button">Przełącz
                     podkreślenie
@@ -32,11 +32,10 @@
                 </button>
             </div>
             <div class="col-sm-3">
-                <img *ngIf="showPhoto" [src]="customer.photoUrl" height="200" width="200"/>
+                <img *ngIf="showPhoto" [src]="customer.photoUrl" height="200" width="200" alt=""/>
                 <div class="checkbox">
                     <label><input type="checkbox" [(ngModel)]="showPhoto">Pokaż zdjęcie</label>
                 </div>
-                <p> {{ counter }}</p>
             </div>
         </div>
     </div>
