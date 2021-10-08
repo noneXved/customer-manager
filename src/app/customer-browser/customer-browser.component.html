@@ -5,9 +5,11 @@
             <option *ngFor="let c of customers" [ngValue]="c">{{ c.name }}</option>
         </select>
         <button class="btn-primary danger" (click)="changeColor()">Zmień kolor</button>
+        <button class="btn-primary danger" (click)="deleteCustomer()">Usun klienta</button>
     </div>
 </div>
 
 <div *ngIf="customer">
     <app-customer-details #details [customer]="customer" (shift)="onShift($event)"></app-customer-details>
 </div>
+

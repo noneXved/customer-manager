@@ -13,9 +13,10 @@ import {MessageService} from "./message.service";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {CONFIG, Config} from "./model";
 import {HttpClientModule} from "@angular/common/http";
+import { CustomerAddComponent } from './customer-add/customer-add.component';
 
 const config: Config = {
-    customerLimit: 2,
+    customerLimit: 10,
     apiUrl: 'http://localhost:13378'
 }
 
@@ -24,7 +25,8 @@ const config: Config = {
         AppComponent,
         HighlightDirective,
         CustomerBrowserComponent,
-        CustomerDetailsComponent
+        CustomerDetailsComponent,
+        CustomerAddComponent
     ],
     imports: [
         BrowserModule,

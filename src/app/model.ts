@@ -1,6 +1,7 @@
 import {InjectionToken} from "@angular/core";
 
 export interface Customer {
+    id?: number;
     name: string;
     photoUrl: string;
     description: string;
