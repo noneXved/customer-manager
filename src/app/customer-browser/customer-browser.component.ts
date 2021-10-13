@@ -2,6 +2,7 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {Customer} from "../model";
 import {CustomerDetailsComponent} from "../customer-details/customer-details.component";
 import {CustomerService} from '../customer.service';
+import {MessageService} from "../message.service";
 
 @Component({
   selector: 'app-customer-browser',
@@ -16,7 +17,7 @@ export class CustomerBrowserComponent implements OnInit {
   customers: Customer[] = [];
   customer: Customer = {} as Customer;
 
-  constructor(private customerService: CustomerService) { }
+  constructor(private customerService: CustomerService, private messageService: MessageService) { }
 
   ngOnInit(): void {
     this.refresh();
@@ -38,7 +39,10 @@ export class CustomerBrowserComponent implements OnInit {
 
   deleteCustomer() {
     this.customerService.deleteCustomer(this.customer).subscribe(
-        () => this.refresh()
+        () => {
+          this.refresh();
+          this.messageService.success("Udało się usunąć klienta!")
+        }
     );
   }
 
