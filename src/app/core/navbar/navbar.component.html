@@ -1,0 +1,27 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light" role="navigation">
+    <div class="container-fluid ">
+        <a class="navbar-brand" href="#">Customer Manger</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+                <a class="nav-link active" routerLink="customers">Klienci</a>
+            </li>
+            <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link active" routerLink="customers/add">Dodaj klienta</a>
+            </li>
+            <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link active" routerLink="contracts">Umowy</a>
+            </li>
+        </ul>
+        <form class="d-flex">
+            <button type="button" class="btn btn-primary" (click)="authService.login()" *ngIf="!authService.isLogged">
+                Zaloguj
+            </button>
+            <button type="button" class="btn btn-primary" (click)="authService.logout()" *ngIf="authService.isLogged">
+                Wyloguj
+            </button>
+        </form>
+    </div>
+</nav>

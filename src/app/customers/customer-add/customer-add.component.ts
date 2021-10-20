@@ -1,10 +1,11 @@
 import {Component, OnInit} from '@angular/core';
-import {CustomerType} from "../model";
+import {MessageService} from '../../core/message.service';
+import { CustomerType } from '../model';
 import {CustomerService} from "../customer.service";
-import { MessageService } from '../message.service';
+import {NgForm} from "@angular/forms";
 
 @Component({
-    selector: 'app-customer-add',
+    selector: 'cus-customer-add',
     templateUrl: './customer-add.component.html',
     styles: []
 })
@@ -21,7 +22,7 @@ export class CustomerAddComponent implements OnInit {
     ngOnInit(): void {
     }
 
-    add() {
+    add(form: NgForm) {
         this.customerService.createCustomer({
             name: this.name,
             age: this.age,
@@ -36,7 +37,10 @@ export class CustomerAddComponent implements OnInit {
             }
 
         }).subscribe(
-            () => this.messageService.success(`Dodano klienta!`)
+            () => {
+                this.messageService.success(`Dodano klienta!`);
+                form.resetForm();
+            }
         );
     }
 

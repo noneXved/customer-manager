@@ -1,4 +1,3 @@
-import {Customer, CustomerType} from './model';
 import {Component} from "@angular/core";
 
 @Component({

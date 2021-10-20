@@ -1,7 +1,8 @@
 import {Inject, Injectable} from '@angular/core';
-import {Config, CONFIG, Customer} from "./model";
+import {Config, CONFIG} from "../model";
 import {HttpClient} from "@angular/common/http";
 import {map} from 'rxjs/operators'
+import {Customer} from "./model";
 
 @Injectable({
     providedIn: 'root'

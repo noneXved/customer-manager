@@ -2,7 +2,7 @@
     <div class="card-header">
         <h1 [style.color]="nameColor" [class.isActive]="isActive">
             <button type="button" (click)="left()">&lt;</button>
-            {{ customer.name.toUpperCase() }}
+            {{ customer.name }}
             <ng-container [ngSwitch]="customer.type">
                 <ng-container *ngSwitchCase="CustomerType.Standard">*</ng-container>
                 <ng-container *ngSwitchCase="CustomerType.Premium">**</ng-container>
@@ -18,11 +18,12 @@
                 <p>{{ customer.description }}</p>
                 <p appHighlight>Wiek: {{ customer.age }}</p>
                 <p>
-                    Adres: {{ customer.address.city }} {{customer.address.street}} {{ customer.address.houseNumber }}
+<!--                    Adres: {{ customer.address.city }} {{customer.address.street}} {{ customer.address.houseNumber }}-->
                 </p>
 
                 <ul>
-                    <li *ngFor="let category of customer.categories; let oddCategory = odd" [class.oddCategory]="oddCategory"> {{ category }} </li>
+                    <li *ngFor="let category of customer.categories; let oddCategory = odd"
+                        [class.oddCategory]="oddCategory"> {{ category }} </li>
                 </ul>
                 <button class="btn btn-primary" (click)="changeIsActive()" type="button">Przełącz
                     podkreślenie
